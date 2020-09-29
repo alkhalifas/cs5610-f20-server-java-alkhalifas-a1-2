@@ -1,0 +1,160 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>WB Profile</title>
+    <!-- Bootstrap was used in this website -->
+    <link crossorigin="anonymous"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          rel="stylesheet">
+    <link crossorigin="anonymous"
+          href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+          rel="stylesheet">
+    <link crossorigin="anonymous"
+          href="profile.style.client.css"
+          rel="stylesheet">
+    <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA////AFxaWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAiIiIiAAAAIiIiIiIiAAIiIiIiIiIgAiIRIiIRIiAiIhESIREiIiIhERERERIiIiESEREhEiIiIRIhEiESIiIhEiESIRIiIiESIRIhEiIiIRIhEiESIiIhEiIiIRIiAiESIiIhEiACIiIiIiIiIAAiIiIiIiIAAAAiIiIiAADwDwAAwAMAAIABAACAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAQAAgAEAAMADAADwDwAA"
+          rel="icon" type="image/x-icon"/>
+
+</head>
+
+<!---------------------------------------- Navigation Bar --------------------------------------->
+
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+    <a class="navbar-brand" href="../index.html"><h3>Whiteboard</h3></a>
+    <button aria-controls="navbarText"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+            class="navbar-toggler"
+            data-target="#navbarText"
+            data-toggle="collapse"
+            type="button">
+
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item ">
+                <a class="nav-link" href="../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../login/login.template.client.html">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../register/register.template.client.html">Register</a>
+            </li>
+
+            <li class="nav-item active">
+                <a class="nav-link" href="profile.template.client.html">Profile</a>
+            </li>
+
+            <li class="nav-item ">
+                <a class="nav-link" href="../manager/manager.template.client.html">Course
+                    Manager</a>
+            </li>
+
+
+            <li class="nav-item">
+                <a class="nav-link" href="../user-admin/user-admin.template.client.html">User
+                    Admin</a>
+            </li>
+
+        </ul>
+
+    </div>
+</nav>
+<br>
+
+
+<div class="container">
+    <link href="profile.style.client.css" rel="stylesheet">
+    <h1>Profile</h1>
+    <form>
+
+        <div class="alert alert-success wbdv-message" role="alert">
+            Profile was successfully saved!
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label wbdv-field wbdv-username" for="usernameFld">
+                Username </label>
+            <div class="col-sm-10">
+                <input class="form-control"
+                       id="usernameFld"
+                       placeholder="Sarah Conner" readonly>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label" for="password">
+                Password </label>
+            <div class="col-sm-10">
+                <input class="form-control wbdv-field wbdv-password" id="password"
+                       placeholder="Terminator123" type="password">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label wbdv-field wbdv-phone" for="phoneFld">
+                Phone </label>
+            <div class="col-sm-10">
+                <input class="form-control"
+                       id="phoneFld"
+                       placeholder="617-111-2222">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label wbdv-field wbdv-email" for="emailFld">
+                Email </label>
+            <div class="col-sm-10">
+                <input class="form-control"
+                       id="emailFld"
+                       placeholder="someone@email.com">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label wbdv-field wbdv-role" for="roleFld">
+                Role </label>
+            <div class="col-sm-10">
+                <select class="form-control" id="roleFld">
+                    <option value="Faculty">Faculty</option>
+                    <option value="Student">Student</option>
+                    <option value="Admin">Admin</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label wbdv-field wbdv-dob" for="dobFld">
+                Date of Birth </label>
+            <div class="col-sm-10">
+                <input class="form-control"
+                       id="dobFld"
+                       type="date"
+                       value="2020-01-01">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <button class="btn btn-primary btn-block wbdv-button wbdv-update" id="updateBtn">
+                    Update
+                </button>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <a class="btn btn-danger btn-block wbdv-button wbdv-logout" href="../index.html"
+                   id="logoutBtn">
+                    Logout
+                </a>
+            </div>
+        </div>
+
+    </form>
+</div>
+

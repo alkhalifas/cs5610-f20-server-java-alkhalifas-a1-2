@@ -1,0 +1,22 @@
+body {
+    padding: 70px 0 0 0;
+}
+
+.gray-border {
+    border: 2px solid lightgray
+}
+
+
+.wbdv-add-course-button-blue {
+    color: #3f44ff;
+}
+
+.non-moving-button {
+    position: fixed;
+    right: 10px;
+    bottom: 10px
+}
+
+.alert {
+    display: none;
+}

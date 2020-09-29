@@ -1,0 +1,25 @@
+body {
+    padding: 45px 0 0 0;
+}
+
+.blacklink {
+    position: relative;
+    left: 15px;
+    vertical-align: middle;
+    color: black;
+}
+
+.wbdv-add-course-button-white {
+    color: white;
+}
+
+
+.wbdv-add-course-button-blue {
+    color: #3f44ff;
+}
+
+.non-moving-button {
+    position: fixed;
+    right: 10px;
+    bottom: 10px
+}

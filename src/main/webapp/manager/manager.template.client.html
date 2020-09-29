@@ -1,0 +1,587 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>WB Course Manager</title>
+    <!-- Bootstrap was used in this website -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+          rel="stylesheet">
+    <link href="manager.style.client.css"
+          rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" rel="stylesheet">
+    <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA////AFxaWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAiIiIiAAAAIiIiIiIiAAIiIiIiIiIgAiIRIiIRIiAiIhESIREiIiIhERERERIiIiESEREhEiIiIRIhEiESIiIhEiESIRIiIiESIRIhEiIiIRIhEiESIiIhEiIiIRIiAiESIiIhEiACIiIiIiIiIAAiIiIiIiIAAAAiIiIiAADwDwAAwAMAAIABAACAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAQAAgAEAAMADAADwDwAA"
+          rel="icon" type="image/x-icon"/>
+
+</head>
+
+<!---------------------------------------- Navigation Bar --------------------------------------->
+
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark wbdv-field wbdv-hamburger">
+    <a class="navbar-brand" href="../index.html"><h3>Whiteboard</h3></a>
+    <button aria-controls="navbarText"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+            class="navbar-toggler"
+            data-target="#navbarText"
+            data-toggle="collapse"
+            type="button">
+
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item ">
+                <a class="nav-link" href="../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../login/login.template.client.html">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../register/register.template.client.html">Register</a>
+            </li>
+
+            <li class="nav-item ">
+                <a class="nav-link" href="../profile/profile.template.client.html">Profile</a>
+            </li>
+
+            <li class="nav-item active">
+                <a class="nav-link" href="manager.template.client.html">Course Manager</a>
+            </li>
+
+
+            <li class="nav-item">
+                <a class="nav-link" href="../user-admin/user-admin.template.client.html">User
+                    Admin</a>
+            </li>
+
+        </ul>
+
+        <input class="form-control col-sm-6 wbdv-field wbdv-new-course d-block"
+               placeholder="Enter New Course Here">
+        <i aria-hidden="true"
+           class="fa fa-plus-circle pull-right fa-2x wbdv-add-course wbdv-add-course-button-white d-block"></i>
+
+    </div>
+</nav>
+<br>
+
+<!---------------------------------------- Course List --------------------------------------->
+
+<div class="container">
+    <div class="row">
+        <div class="col-8">
+            <h1 class="wbdv-label wbdv-course-manager">Course Manager</h1>
+        </div>
+
+        <div class="col-4">
+            <div>
+                <br/>
+            </div>
+            <div>
+                <button class="btn btn-light pull-right wbdv-button wbdv-grid-layout" type="button">
+                    <svg class="bi bi-list-ul pull-right " fill="currentColor" height="1em"
+                         viewBox="0 0 16 16" width="1em"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"
+                              fill-rule="evenodd"/>
+                    </svg>
+                </button>
+
+                <button class="btn btn-light pull-right wbdv-button wbdv-list-layout" type="button">
+                    <svg class="bi bi-grid-3x2-gap-fill pull-right" fill="currentColor" height="1em"
+                         viewBox="0 0 16 16" width="1em"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V4zM1 9a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V9zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V9zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V9z"/>
+                    </svg>
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th class="wbdv-header wbdv-title">Course Name
+                <svg class="wbdv-header wbdv-sort bi bi-arrow-down-short wbdv-header wbdv-sort"
+                     fill="currentColor" height="1em"
+                     viewBox="0 0 16 16"
+                     width="1em" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 4a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5A.5.5 0 0 1 8 4z"
+                          fill-rule="evenodd"/>
+                </svg>
+            </th>
+            <th class="wbdv-header wbdv-owner">Owned By
+                <svg class="wbdv-header wbdv-sort bi bi-arrow-down-short wbdv-header wbdv-sort"
+                     fill="currentColor" height="1em"
+                     viewBox="0 0 16 16"
+                     width="1em" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 4a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5A.5.5 0 0 1 8 4z"
+                          fill-rule="evenodd"/>
+                </svg>
+            </th>
+            <th class="d-none d-lg-block wbdv-header wbdv-last-modified">Last Modified
+                <svg class="wbdv-header wbdv-sort bi bi-arrow-down-short wbdv-header wbdv-sort"
+                     fill="currentColor" height="1em"
+                     viewBox="0 0 16 16"
+                     width="1em" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 4a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5A.5.5 0 0 1 8 4z"
+                          fill-rule="evenodd"/>
+                </svg>
+            </th>
+
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+
+        <tbody>
+
+        <tr class="wbdv-row wbdv-course">
+            <td><h6><i class="fas fa-file-alt wbdv-row wbdv-icon"></i>
+                <a class="blacklink wbdv-row wbdv-title"
+                   href="../course/course.template.client.html">CS 5500 Software Engineering
+                    Graduate</a></h6></td>
+            <td class="wbdv-row wbdv-owner"><h6>me</h6></td>
+            <td class="d-none d-lg-block  wbdv-row wbdv-modified-date"><h6>8-05-20 8:59 PM EST</h6>
+            </td>
+
+            <td>
+                <button class="btn btn-light d-none d-lg-block" type="button">Edit</button>
+            </td>
+            <td>
+                <button class="btn btn-light wbdv-row wbdv-button wbdv-delete" type="button">
+                    <svg class="bi bi-trash-fill wbdv-row wbdv-button wbdv-delete"
+                         fill="currentColor" height="1em"
+                         viewBox="0 0 16 16"
+                         width="1em" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"
+                              fill-rule="evenodd"/>
+                    </svg>
+                </button>
+            </td>
+        </tr>
+        <tr class="wbdv-row wbdv-course">
+            <td><h6><i class="fas fa-file-alt wbdv-row wbdv-icon"></i>
+                <a class="blacklink wbdv-row wbdv-title"
+                   href="../course/course.template.client.html">CS 5500 Software Engineering
+                    Graduate</a></h6></td>
+            <td class="wbdv-row wbdv-owner"><h6>me</h6></td>
+            <td class="d-none d-lg-block  wbdv-row wbdv-modified-date"><h6>8-05-20 8:59 PM EST</h6>
+            </td>
+
+            <td>
+                <button class="btn btn-light d-none d-lg-block" type="button">Edit</button>
+            </td>
+            <td>
+                <button class="btn btn-light wbdv-row wbdv-button wbdv-delete" type="button">
+                    <svg class="bi bi-trash-fill wbdv-row wbdv-button wbdv-delete"
+                         fill="currentColor" height="1em"
+                         viewBox="0 0 16 16"
+                         width="1em" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"
+                              fill-rule="evenodd"/>
+                    </svg>
+                </button>
+            </td>
+        </tr>
+        <tr class="wbdv-row wbdv-course">
+            <td><h6><i class="fas fa-file-alt wbdv-row wbdv-icon"></i>
+                <a class="blacklink wbdv-row wbdv-title"
+                   href="../course/course.template.client.html">CS 5500 Software Engineering
+                    Graduate</a></h6></td>
+            <td class="wbdv-row wbdv-owner"><h6>me</h6></td>
+            <td class="d-none d-lg-block  wbdv-row wbdv-modified-date"><h6>8-05-20 8:59 PM EST</h6>
+            </td>
+
+            <td>
+                <button class="btn btn-light d-none d-lg-block" type="button">Edit</button>
+            </td>
+            <td>
+                <button class="btn btn-light wbdv-row wbdv-button wbdv-delete" type="button">
+                    <svg class="bi bi-trash-fill wbdv-row wbdv-button wbdv-delete"
+                         fill="currentColor" height="1em"
+                         viewBox="0 0 16 16"
+                         width="1em" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"
+                              fill-rule="evenodd"/>
+                    </svg>
+                </button>
+            </td>
+        </tr>
+        <tr class="wbdv-row wbdv-course">
+            <td><h6><i class="fas fa-file-alt wbdv-row wbdv-icon"></i>
+                <a class="blacklink wbdv-row wbdv-title"
+                   href="../course/course.template.client.html">CS 5500 Software Engineering
+                    Graduate</a></h6></td>
+            <td class="wbdv-row wbdv-owner"><h6>me</h6></td>
+            <td class="d-none d-lg-block  wbdv-row wbdv-modified-date"><h6>8-05-20 8:59 PM EST</h6>
+            </td>
+
+            <td>
+                <button class="btn btn-light d-none d-lg-block" type="button">Edit</button>
+            </td>
+            <td>
+                <button class="btn btn-light wbdv-row wbdv-button wbdv-delete" type="button">
+                    <svg class="bi bi-trash-fill wbdv-row wbdv-button wbdv-delete"
+                         fill="currentColor" height="1em"
+                         viewBox="0 0 16 16"
+                         width="1em" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"
+                              fill-rule="evenodd"/>
+                    </svg>
+                </button>
+            </td>
+        </tr>
+        <tr class="wbdv-row wbdv-course">
+            <td><h6><i class="fas fa-file-alt wbdv-row wbdv-icon"></i>
+                <a class="blacklink wbdv-row wbdv-title"
+                   href="../course/course.template.client.html">CS 5500 Software Engineering
+                    Graduate</a></h6></td>
+            <td class="wbdv-row wbdv-owner"><h6>me</h6></td>
+            <td class="d-none d-lg-block  wbdv-row wbdv-modified-date"><h6>8-05-20 8:59 PM EST</h6>
+            </td>
+
+            <td>
+                <button class="btn btn-light d-none d-lg-block" type="button">Edit</button>
+            </td>
+            <td>
+                <button class="btn btn-light wbdv-row wbdv-button wbdv-delete" type="button">
+                    <svg class="bi bi-trash-fill wbdv-row wbdv-button wbdv-delete"
+                         fill="currentColor" height="1em"
+                         viewBox="0 0 16 16"
+                         width="1em" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"
+                              fill-rule="evenodd"/>
+                    </svg>
+                </button>
+            </td>
+        </tr>
+        <tr class="wbdv-row wbdv-course">
+            <td><h6><i class="fas fa-file-alt wbdv-row wbdv-icon"></i>
+                <a class="blacklink wbdv-row wbdv-title"
+                   href="../course/course.template.client.html">CS 5500 Software Engineering
+                    Graduate</a></h6></td>
+            <td class="wbdv-row wbdv-owner"><h6>me</h6></td>
+            <td class="d-none d-lg-block  wbdv-row wbdv-modified-date"><h6>8-05-20 8:59 PM EST</h6>
+            </td>
+
+            <td>
+                <button class="btn btn-light d-none d-lg-block" type="button">Edit</button>
+            </td>
+            <td>
+                <button class="btn btn-light wbdv-row wbdv-button wbdv-delete" type="button">
+                    <svg class="bi bi-trash-fill wbdv-row wbdv-button wbdv-delete"
+                         fill="currentColor" height="1em"
+                         viewBox="0 0 16 16"
+                         width="1em" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"
+                              fill-rule="evenodd"/>
+                    </svg>
+                </button>
+            </td>
+        </tr>
+        <tr class="wbdv-row wbdv-course">
+            <td><h6><i class="fas fa-file-alt wbdv-row wbdv-icon"></i>
+                <a class="blacklink wbdv-row wbdv-title"
+                   href="../course/course.template.client.html">CS 5500 Software Engineering
+                    Graduate</a></h6></td>
+            <td class="wbdv-row wbdv-owner"><h6>me</h6></td>
+            <td class="d-none d-lg-block  wbdv-row wbdv-modified-date"><h6>8-05-20 8:59 PM EST</h6>
+            </td>
+
+            <td>
+                <button class="btn btn-light d-none d-lg-block" type="button">Edit</button>
+            </td>
+            <td>
+                <button class="btn btn-light wbdv-row wbdv-button wbdv-delete" type="button">
+                    <svg class="bi bi-trash-fill wbdv-row wbdv-button wbdv-delete"
+                         fill="currentColor" height="1em"
+                         viewBox="0 0 16 16"
+                         width="1em" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"
+                              fill-rule="evenodd"/>
+                    </svg>
+                </button>
+            </td>
+        </tr>
+        <tr class="wbdv-row wbdv-course">
+            <td><h6><i class="fas fa-file-alt wbdv-row wbdv-icon"></i>
+                <a class="blacklink wbdv-row wbdv-title"
+                   href="../course/course.template.client.html">CS 5500 Software Engineering
+                    Graduate</a></h6></td>
+            <td class="wbdv-row wbdv-owner"><h6>me</h6></td>
+            <td class="d-none d-lg-block  wbdv-row wbdv-modified-date"><h6>8-05-20 8:59 PM EST</h6>
+            </td>
+
+            <td>
+                <button class="btn btn-light d-none d-lg-block" type="button">Edit</button>
+            </td>
+            <td>
+                <button class="btn btn-light wbdv-row wbdv-button wbdv-delete" type="button">
+                    <svg class="bi bi-trash-fill wbdv-row wbdv-button wbdv-delete"
+                         fill="currentColor" height="1em"
+                         viewBox="0 0 16 16"
+                         width="1em" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"
+                              fill-rule="evenodd"/>
+                    </svg>
+                </button>
+            </td>
+        </tr>
+        <tr class="wbdv-row wbdv-course">
+            <td><h6><i class="fas fa-file-alt wbdv-row wbdv-icon"></i>
+                <a class="blacklink wbdv-row wbdv-title"
+                   href="../course/course.template.client.html">CS 5500 Software Engineering
+                    Graduate</a></h6></td>
+            <td class="wbdv-row wbdv-owner"><h6>me</h6></td>
+            <td class="d-none d-lg-block  wbdv-row wbdv-modified-date"><h6>8-05-20 8:59 PM EST</h6>
+            </td>
+
+            <td>
+                <button class="btn btn-light d-none d-lg-block" type="button">Edit</button>
+            </td>
+            <td>
+                <button class="btn btn-light wbdv-row wbdv-button wbdv-delete" type="button">
+                    <svg class="bi bi-trash-fill wbdv-row wbdv-button wbdv-delete"
+                         fill="currentColor" height="1em"
+                         viewBox="0 0 16 16"
+                         width="1em" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"
+                              fill-rule="evenodd"/>
+                    </svg>
+                </button>
+            </td>
+        </tr>
+        <tr class="wbdv-row wbdv-course">
+            <td><h6><i class="fas fa-file-alt wbdv-row wbdv-icon"></i>
+                <a class="blacklink wbdv-row wbdv-title"
+                   href="../course/course.template.client.html">CS 5500 Software Engineering
+                    Graduate</a></h6></td>
+            <td class="wbdv-row wbdv-owner"><h6>me</h6></td>
+            <td class="d-none d-lg-block  wbdv-row wbdv-modified-date"><h6>8-05-20 8:59 PM EST</h6>
+            </td>
+
+            <td>
+                <button class="btn btn-light d-none d-lg-block" type="button">Edit</button>
+            </td>
+            <td>
+                <button class="btn btn-light wbdv-row wbdv-button wbdv-delete" type="button">
+                    <svg class="bi bi-trash-fill wbdv-row wbdv-button wbdv-delete"
+                         fill="currentColor" height="1em"
+                         viewBox="0 0 16 16"
+                         width="1em" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"
+                              fill-rule="evenodd"/>
+                    </svg>
+                </button>
+            </td>
+        </tr>
+        <tr class="wbdv-row wbdv-course">
+            <td><h6><i class="fas fa-file-alt wbdv-row wbdv-icon"></i>
+                <a class="blacklink wbdv-row wbdv-title"
+                   href="../course/course.template.client.html">CS 5500 Software Engineering
+                    Graduate</a></h6></td>
+            <td class="wbdv-row wbdv-owner"><h6>me</h6></td>
+            <td class="d-none d-lg-block  wbdv-row wbdv-modified-date"><h6>8-05-20 8:59 PM EST</h6>
+            </td>
+
+            <td>
+                <button class="btn btn-light d-none d-lg-block" type="button">Edit</button>
+            </td>
+            <td>
+                <button class="btn btn-light wbdv-row wbdv-button wbdv-delete" type="button">
+                    <svg class="bi bi-trash-fill wbdv-row wbdv-button wbdv-delete"
+                         fill="currentColor" height="1em"
+                         viewBox="0 0 16 16"
+                         width="1em" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"
+                              fill-rule="evenodd"/>
+                    </svg>
+                </button>
+            </td>
+        </tr>
+        <tr class="wbdv-row wbdv-course">
+            <td><h6><i class="fas fa-file-alt wbdv-row wbdv-icon"></i>
+                <a class="blacklink wbdv-row wbdv-title"
+                   href="../course/course.template.client.html">CS 5500 Software Engineering
+                    Graduate</a></h6></td>
+            <td class="wbdv-row wbdv-owner"><h6>me</h6></td>
+            <td class="d-none d-lg-block  wbdv-row wbdv-modified-date"><h6>8-05-20 8:59 PM EST</h6>
+            </td>
+
+            <td>
+                <button class="btn btn-light d-none d-lg-block" type="button">Edit</button>
+            </td>
+            <td>
+                <button class="btn btn-light wbdv-row wbdv-button wbdv-delete" type="button">
+                    <svg class="bi bi-trash-fill wbdv-row wbdv-button wbdv-delete"
+                         fill="currentColor" height="1em"
+                         viewBox="0 0 16 16"
+                         width="1em" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"
+                              fill-rule="evenodd"/>
+                    </svg>
+                </button>
+            </td>
+        </tr>
+        <tr class="wbdv-row wbdv-course">
+            <td><h6><i class="fas fa-file-alt wbdv-row wbdv-icon"></i>
+                <a class="blacklink wbdv-row wbdv-title"
+                   href="../course/course.template.client.html">CS 5500 Software Engineering
+                    Graduate</a></h6></td>
+            <td class="wbdv-row wbdv-owner"><h6>me</h6></td>
+            <td class="d-none d-lg-block  wbdv-row wbdv-modified-date"><h6>8-05-20 8:59 PM EST</h6>
+            </td>
+
+            <td>
+                <button class="btn btn-light d-none d-lg-block" type="button">Edit</button>
+            </td>
+            <td>
+                <button class="btn btn-light wbdv-row wbdv-button wbdv-delete" type="button">
+                    <svg class="bi bi-trash-fill wbdv-row wbdv-button wbdv-delete"
+                         fill="currentColor" height="1em"
+                         viewBox="0 0 16 16"
+                         width="1em" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"
+                              fill-rule="evenodd"/>
+                    </svg>
+                </button>
+            </td>
+        </tr>
+        <tr class="wbdv-row wbdv-course">
+            <td><h6><i class="fas fa-file-alt wbdv-row wbdv-icon"></i>
+                <a class="blacklink wbdv-row wbdv-title"
+                   href="../course/course.template.client.html">CS 5500 Software Engineering
+                    Graduate</a></h6></td>
+            <td class="wbdv-row wbdv-owner"><h6>me</h6></td>
+            <td class="d-none d-lg-block  wbdv-row wbdv-modified-date"><h6>8-05-20 8:59 PM EST</h6>
+            </td>
+
+            <td>
+                <button class="btn btn-light d-none d-lg-block" type="button">Edit</button>
+            </td>
+            <td>
+                <button class="btn btn-light wbdv-row wbdv-button wbdv-delete" type="button">
+                    <svg class="bi bi-trash-fill wbdv-row wbdv-button wbdv-delete"
+                         fill="currentColor" height="1em"
+                         viewBox="0 0 16 16"
+                         width="1em" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"
+                              fill-rule="evenodd"/>
+                    </svg>
+                </button>
+            </td>
+        </tr>
+        <tr class="wbdv-row wbdv-course">
+            <td><h6><i class="fas fa-file-alt wbdv-row wbdv-icon"></i>
+                <a class="blacklink wbdv-row wbdv-title"
+                   href="../course/course.template.client.html">CS 5500 Software Engineering
+                    Graduate</a></h6></td>
+            <td class="wbdv-row wbdv-owner"><h6>me</h6></td>
+            <td class="d-none d-lg-block  wbdv-row wbdv-modified-date"><h6>8-05-20 8:59 PM EST</h6>
+            </td>
+
+            <td>
+                <button class="btn btn-light d-none d-lg-block" type="button">Edit</button>
+            </td>
+            <td>
+                <button class="btn btn-light wbdv-row wbdv-button wbdv-delete" type="button">
+                    <svg class="bi bi-trash-fill wbdv-row wbdv-button wbdv-delete"
+                         fill="currentColor" height="1em"
+                         viewBox="0 0 16 16"
+                         width="1em" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"
+                              fill-rule="evenodd"/>
+                    </svg>
+                </button>
+            </td>
+        </tr>
+        <tr class="wbdv-row wbdv-course">
+            <td><h6><i class="fas fa-file-alt wbdv-row wbdv-icon"></i>
+                <a class="blacklink wbdv-row wbdv-title"
+                   href="../course/course.template.client.html">CS 5500 Software Engineering
+                    Graduate</a></h6></td>
+            <td class="wbdv-row wbdv-owner"><h6>me</h6></td>
+            <td class="d-none d-lg-block  wbdv-row wbdv-modified-date"><h6>8-05-20 8:59 PM EST</h6>
+            </td>
+
+            <td>
+                <button class="btn btn-light d-none d-lg-block" type="button">Edit</button>
+            </td>
+            <td>
+                <button class="btn btn-light wbdv-row wbdv-button wbdv-delete" type="button">
+                    <svg class="bi bi-trash-fill wbdv-row wbdv-button wbdv-delete"
+                         fill="currentColor" height="1em"
+                         viewBox="0 0 16 16"
+                         width="1em" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"
+                              fill-rule="evenodd"/>
+                    </svg>
+                </button>
+            </td>
+        </tr>
+        <tr class="wbdv-row wbdv-course">
+            <td><h6><i class="fas fa-file-alt wbdv-row wbdv-icon"></i>
+                <a class="blacklink wbdv-row wbdv-title"
+                   href="../course/course.template.client.html">CS 5500 Software Engineering
+                    Graduate</a></h6></td>
+            <td class="wbdv-row wbdv-owner"><h6>me</h6></td>
+            <td class="d-none d-lg-block  wbdv-row wbdv-modified-date"><h6>8-05-20 8:59 PM EST</h6>
+            </td>
+
+            <td>
+                <button class="btn btn-light d-none d-lg-block" type="button">Edit</button>
+            </td>
+            <td>
+                <button class="btn btn-light wbdv-row wbdv-button wbdv-delete" type="button">
+                    <svg class="bi bi-trash-fill wbdv-row wbdv-button wbdv-delete"
+                         fill="currentColor" height="1em"
+                         viewBox="0 0 16 16"
+                         width="1em" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"
+                              fill-rule="evenodd"/>
+                    </svg>
+                </button>
+            </td>
+        </tr>
+        <tr class="wbdv-row wbdv-course">
+            <td><h6><i class="fas fa-file-alt wbdv-row wbdv-icon"></i>
+                <a class="blacklink wbdv-row wbdv-title"
+                   href="../course/course.template.client.html">CS 5500 Software Engineering
+                    Graduate</a></h6></td>
+            <td class="wbdv-row wbdv-owner"><h6>me</h6></td>
+            <td class="d-none d-lg-block  wbdv-row wbdv-modified-date"><h6>8-05-20 8:59 PM EST</h6>
+            </td>
+
+            <td>
+                <button class="btn btn-light d-none d-lg-block" type="button">Edit</button>
+            </td>
+            <td>
+                <button class="btn btn-light wbdv-row wbdv-button wbdv-delete" type="button">
+                    <svg class="bi bi-trash-fill wbdv-row wbdv-button wbdv-delete"
+                         fill="currentColor" height="1em"
+                         viewBox="0 0 16 16"
+                         width="1em" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"
+                              fill-rule="evenodd"/>
+                    </svg>
+                </button>
+            </td>
+        </tr>
+
+
+        </tbody>
+
+
+    </table>
+
+    <i aria-hidden="true"
+       class="fa fa-plus-circle pull-right fa-3x wbdv-add-course wbdv-add-course-button-blue non-moving-button"></i>
+</div>
+
+</html>

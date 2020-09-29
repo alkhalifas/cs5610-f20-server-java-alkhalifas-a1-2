@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>User Admin</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          rel="stylesheet"/>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+          rel="stylesheet"/>
+    <link href="user-admin.style.client.css" rel="stylesheet"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="../services/user.service.client.js"></script>
+    <script src="user-admin.controller.client.js"></script>
+    <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA////AFxaWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAiIiIiAAAAIiIiIiIiAAIiIiIiIiIgAiIRIiIRIiAiIhESIREiIiIhERERERIiIiESEREhEiIiIRIhEiESIiIhEiESIRIiIiESIRIhEiIiIRIhEiESIiIhEiIiIRIiAiESIiIhEiACIiIiIiIiIAAiIiIiIiIAAAAiIiIiAADwDwAAwAMAAIABAACAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAQAAgAEAAMADAADwDwAA"
+          rel="icon" type="image/x-icon"/>
+
+</head>
+<body>
+
+<!---------------------------------------- Navigation Bar --------------------------------------->
+
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+    <a class="navbar-brand" href="../index.html"><h3>Whiteboard</h3></a>
+    <button aria-controls="navbarText"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+            class="navbar-toggler"
+            data-target="#navbarText"
+            data-toggle="collapse"
+            type="button">
+
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item ">
+                <a class="nav-link" href="../index.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../login/login.template.client.html">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../register/register.template.client.html">Register</a>
+            </li>
+
+            <li class="nav-item ">
+                <a class="nav-link" href="../profile/profile.template.client.html">Profile</a>
+            </li>
+
+            <li class="nav-item ">
+                <a class="nav-link" href="../manager/manager.template.client.html">Course
+                    Manager</a>
+            </li>
+
+            <li class="nav-item active">
+                <a class="nav-link" href="../user-admin/user-admin.template.client.html">User
+                    Admin</a>
+            </li>
+
+        </ul>
+        <span class="navbar-text">
+      Administrator View
+    </span>
+    </div>
+</nav>
+
+<!---------------------------------------- User Admin --------------------------------------->
+
+<div class="container">
+
+    <div class="form-group row">
+        <h1 class="col-sm-6">User Admin</h1>
+
+        <div class="col-sm-5 mt-3">
+            <input class="form-control"
+                   id="searchInput"
+                   placeholder="Search all fields"
+                   type="text">
+        </div>
+        <button class="fa-2x fa fa-search btn btn-xs wbdv-search col-sm-1 btn-light mt-2"></button>
+    </div>
+
+
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>Username</th>
+            <th>Password</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>User Role</th>
+            <th>&nbsp;</th>
+        </tr>
+
+        <tr class="wbdv-form">
+            <td><input class="form-control" id="usernameFld"
+                       placeholder="Username"/></td>
+            <td><input class="form-control" id="passwordFld"
+                       placeholder="Password"/></td>
+            <td><input class="form-control" id="firstNameFld"
+                       placeholder="First Name"/></td>
+            <td><input class="form-control" id="lastNameFld"
+                       placeholder="Last Name"/></td>
+            <td><input class="form-control" id="emailFld"
+                       placeholder="Email"/></td>
+            <td><select class="form-control" id="roleFld">
+                <option value="FACULTY">Faculty</option>
+                <option value="STUDENT">Student</option>
+                <option value="ADMIN">Admin</option>
+            </select></td>
+            <td>
+                    <span class="float-right" style="white-space: nowrap">
+<!--                        <i class="fa-2x fa fa-search wbdv-search"></i>-->
+                        <button class="fa-2x fa fa-plus btn btn-light wbdv-create"></button>
+                        <button class="fa-2x fa fa-check btn btn-light wbdv-update"></button>
+                      </span>
+            </td>
+        </tr>
+        </thead>
+        <tbody id="tableIdentifier">
+        <tr class="wbdv-template wbdv-user wbdv-hidden">
+            <td class="wbdv-username"></td>
+            <td class="wbdv-password"></td>
+            <!--            <td>&nbsp;</td>-->
+            <td class="wbdv-first-name"></td>
+            <td class="wbdv-last-name"></td>
+
+            <td class="wbdv-email"></td>
+
+            <td class="wbdv-role"></td>
+            <td class="wbdv-actions row">
+                    <span class="float-right">
+                        <i class="btn btn-light wbdv-edit" type="button">Edit</i>
+                        <i class="btn btn-light wbdv-row wbdv-button wbdv-delete wbdv-remove"
+                           type="button">
+                    <svg class="bi bi-trash-fill wbdv-row wbdv-button wbdv-delete"
+                         fill="currentColor" height="1em"
+                         viewBox="0 0 16 16"
+                         width="1em" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"
+                              fill-rule="evenodd"/>
+                    </svg>
+                </i>
+
+                    </span>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
