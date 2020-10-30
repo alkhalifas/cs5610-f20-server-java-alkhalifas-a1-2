@@ -38,16 +38,33 @@ public class WidgetController {
   public List<Widget> findAllWidgets() {
     return service.findAllWidgets();
   }
+
   @GetMapping("/api/widgets/{wid}")
   public Widget findWidgetById(
           @PathVariable("wid") String widgetId) {
     return service.findWidgetById(widgetId);
   }
+
   @PostMapping("/api/widgets")
   public Widget createWidget(
           @RequestBody Widget widget) {
     return service.createWidget(widget);
   }
+
+  @DeleteMapping("/api/widgets/{wid}")
+  public int deleteWidget(@PathVariable("wid") String wid) {
+    return service.deleteWidget(wid);
+  }
+
+  @PostMapping("/api/topics/{topicId}/widgets")
+  public Widget createWidgetForTopic(
+          @PathVariable("topicId") String topicId,
+          @RequestBody Widget widget) {
+    widget.setTopicId(topicId);
+    //widget.setType("HEADING"); // Did not make difference
+    return service.createWidget(widget);
+  }
+
   @PutMapping("/api/widgets/{wid}")
   public Integer updateWidget(
           @PathVariable("wid") String widgetId,

@@ -9,9 +9,10 @@ import java.util.List;
 public class WidgetService {
   List<Widget> widgets = new ArrayList<Widget>();
   {
-    widgets.add(new Widget("123", "Widget SS xx123", "HEADING", "topic123"));
-    widgets.add(new Widget("234", "Widget SS xx234", "PARAGRAPH", "5f99fddb0fb42800178bd83f"));
-    widgets.add(new Widget("5f99fddb0fb42800178bd83f", "Widget xx345", "HEADING", "topic234"));
+    widgets.add(new Widget("123", "Machine Learning", "HEADING", "5f9b36761a4d420017a4384a"));
+    widgets.add(new Widget("234", "ML Theory", "PARAGRAPH", "5f9b36761a4d420017a4384a"));
+    widgets.add(new Widget("345", "Deep Learning Theory", "HEADING", "5f9b36891a4d420017a4384b"));
+    widgets.add(new Widget("456", "NLP Theory", "HEADING", "5f9b36951a4d420017a4384c"));
   }
 
   public List<Widget> findWidgetsForTopic(String tid) {
@@ -26,6 +27,7 @@ public class WidgetService {
   public List<Widget> findAllWidgets() {
     return widgets;
   }
+
   public Widget findWidgetById(String widgetId) {
     for(Widget w: widgets) {
       if(w.getId().equals(widgetId))
@@ -33,11 +35,34 @@ public class WidgetService {
     }
     return null;
   }
+
   public Widget createWidget(Widget widget) {
     widget.setId((new Date()).toString());
+    widget.setName("New Widget"); // Did not make difference
+    widget.setType("HEADING"); // Did not make difference
     widgets.add(widget);
     return widget;
   }
+
+  public int deleteWidget(String wid) {
+    for (Widget widget : widgets) {
+      if (widget.getTopicId().equals(wid)) {
+        widgets.remove(widget);
+        return 1;
+      }
+    }
+    return 0;
+  }
+
+//  public Widget createWidgetForTopic(Widget widget, topicId) {
+//    widget.setId((new Date()).toString());
+//    widget.setName("New Widget");
+//    widget.setType("HEADING");
+//    widget.setTopicId(topicId);
+//    widgets.add(widget);
+//    return widget;
+//  }
+
   public Integer updateWidget(
           String widgetId,
           Widget newWidget) {
