@@ -3,6 +3,7 @@ package com.example.cs5610f20serverjavaalkhalifas.services;
 import com.example.cs5610f20serverjavaalkhalifas.models.Widget;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -10,10 +11,19 @@ import java.util.stream.Collectors;
 public class WidgetService {
   List<Widget> widgets = new ArrayList<Widget>();
   {
-    widgets.add(new Widget("123", "Machine Learning", "HEADING", "5f9b36761a4d420017a4384a"));
-    widgets.add(new Widget("234", "ML Theory", "PARAGRAPH", "5f9b36761a4d420017a4384a"));
-    widgets.add(new Widget("345", "Deep Learning Theory", "HEADING", "5f9b36891a4d420017a4384b"));
-    widgets.add(new Widget("456", "NLP Theory", "HEADING", "5f9b36951a4d420017a4384c"));
+    widgets.add(new Widget("123", "Widget Name 1",
+            "HEADING", 1, "Sample Heading Text 1",
+            "Heading 5", 650, 200, "5f9b36761a4d420017a4384a"));
+    widgets.add(new Widget("234", "Widget Name 2",
+            "HEADING", 2, "Sample Heading Text 2",
+            "Heading 5", 650, 200, "5f9b36761a4d420017a4384a"));
+    widgets.add(new Widget("345", "Widget Name 3",
+            "HEADING", 3, "Sample Heading Text 3",
+            "Heading 5", 650, 200, "5f9b36761a4d420017a4384a"));
+    widgets.add(new Widget("456", "Widget Name 4",
+            "HEADING", 1, "Sample Heading Text 4",
+            "Heading 5", 650, 200, "5f9b36891a4d420017a4384b"));
+
   }
 
   public List<Widget> findWidgetsForTopic(String tid) {
@@ -37,10 +47,16 @@ public class WidgetService {
     return null;
   }
 
+  //When creating a new widget, be sure to change these:
   public Widget createWidget(Widget widget) {
     widget.setId((new Date()).toString());
-    widget.setName("New Widget"); // Did not make difference
-    widget.setType("HEADING"); // Did not make difference
+    widget.setName("New Widget");
+    widget.setType("HEADING");
+    widget.setWidgetOrder(widgets.size() + 1);
+    widget.setSize("Heading 1");
+    widget.setWidth(650);
+    widget.setHeight(200);
+    widget.setText("Widget Text");
     widgets.add(widget);
     return widget;
   }
@@ -60,6 +76,8 @@ public class WidgetService {
 //    return widget;
 //  }
 
+  // add new attributes to this list when you need them to update the API data
+
   public Integer updateWidget(
           String wid,
           Widget newWidget) {
@@ -67,6 +85,9 @@ public class WidgetService {
       if(w.getId().equals(wid)) {
         w.setName(newWidget.getName());
         w.setType(newWidget.getType());
+        w.setWidgetOrder(newWidget.getWidgetOrder());
+        w.setSize(newWidget.getSize());
+        w.setText(newWidget.getText());
         return 1;
       }
     }
