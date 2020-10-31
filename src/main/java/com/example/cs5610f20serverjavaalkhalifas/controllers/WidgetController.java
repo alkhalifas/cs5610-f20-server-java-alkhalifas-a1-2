@@ -51,8 +51,9 @@ public class WidgetController {
     return service.createWidget(widget);
   }
 
-  @DeleteMapping("/api/widgets/{wid}")
-  public int deleteWidget(@PathVariable("wid") String wid) {
+  @DeleteMapping("api/widgets/{widgetId}")
+  public int deleteWidget(
+          @PathVariable("widgetId") String wid) {
     return service.deleteWidget(wid);
   }
 
@@ -67,9 +68,9 @@ public class WidgetController {
 
   @PutMapping("/api/widgets/{wid}")
   public Integer updateWidget(
-          @PathVariable("wid") String widgetId,
+          @PathVariable("wid") String wid,
           @RequestBody Widget newWidget) {
-    return service.updateWidget(widgetId, newWidget);
+    return service.updateWidget(wid, newWidget);
   }
   // TODO: updateWidget, deleteWidget
 }

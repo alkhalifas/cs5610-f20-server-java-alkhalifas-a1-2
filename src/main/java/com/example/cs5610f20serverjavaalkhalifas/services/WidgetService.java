@@ -5,6 +5,7 @@ import com.example.cs5610f20serverjavaalkhalifas.models.Widget;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class WidgetService {
   List<Widget> widgets = new ArrayList<Widget>();
@@ -45,13 +46,9 @@ public class WidgetService {
   }
 
   public int deleteWidget(String wid) {
-    for (Widget widget : widgets) {
-      if (widget.getTopicId().equals(wid)) {
-        widgets.remove(widget);
-        return 1;
-      }
-    }
-    return 0;
+    widgets = widgets.stream()
+            .filter(w -> !w.getId().equals(wid)).collect(Collectors.toList());
+    return 1;
   }
 
 //  public Widget createWidgetForTopic(Widget widget, topicId) {
@@ -64,10 +61,10 @@ public class WidgetService {
 //  }
 
   public Integer updateWidget(
-          String widgetId,
+          String wid,
           Widget newWidget) {
     for(Widget w: widgets) {
-      if(w.getId().equals(widgetId)) {
+      if(w.getId().equals(wid)) {
         w.setName(newWidget.getName());
         w.setType(newWidget.getType());
         return 1;
