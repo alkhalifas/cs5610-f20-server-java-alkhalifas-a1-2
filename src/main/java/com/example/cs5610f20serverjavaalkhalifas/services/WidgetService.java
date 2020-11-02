@@ -11,29 +11,25 @@ import java.util.stream.Collectors;
 public class WidgetService {
   List<Widget> widgets = new ArrayList<Widget>();
   {
-    widgets.add(new Widget("123", "Widget Name 1",
-            "HEADING", 1, "Sample Heading Text 1",
-            "Heading 5", 650, 200, "5f9b36761a4d420017a4384a"));
-    widgets.add(new Widget("234", "Widget Name 2",
-            "HEADING", 2, "Sample Heading Text 2",
-            "Heading 5", 650, 200, "5f9b36761a4d420017a4384a"));
+
     widgets.add(new Widget("345", "Widget Name 3",
-            "HEADING", 3, "Sample Heading Text 3",
-            "Heading 5", 650, 200, "5f9b36761a4d420017a4384a"));
-    widgets.add(new Widget("456", "Widget Name 4",
-            "HEADING", 1, "Sample Heading Text 4",
-            "Heading 5", 650, 200, "5f9b36891a4d420017a4384b"));
+            "PARAGRAPH", 3, "Machine learning (ML) is the study of computer algorithms that improve automatically through experience. It is seen as a subset of artificial intelligence. Machine learning algorithms build a model based on sample data, known as training data, in order to make predictions or decisions without being explicitly programmed to do so.",
+            "Heading 5", 650, 200, "CSS Style Here","style.css", "Some Value", "5f9b36761a4d420017a4384a"));
+    widgets.add(new Widget("123", "Widget Name 1",
+            "HEADING", 1, "What is Machine Learning?",
+            "Heading 3", 650, 200, "CSS Style Here","style.css", "Some Value", "5f9b36761a4d420017a4384a"));
 
   }
 
   public List<Widget> findWidgetsForTopic(String tid) {
-    List<Widget> ws = new ArrayList<Widget>();
+    List<Widget> WidgetsList = new ArrayList<Widget>();
     for(Widget w: widgets) {
       if(w.getTopicId().equals(tid)) {
-        ws.add(w);
+        WidgetsList.add(w);
       }
     }
-    return ws;
+    Collections.reverse(WidgetsList);
+    return WidgetsList;
   }
   public List<Widget> findAllWidgets() {
     return widgets;
@@ -57,6 +53,9 @@ public class WidgetService {
     widget.setWidth(650);
     widget.setHeight(200);
     widget.setText("Widget Text");
+    widget.setCssClass("style.css");
+    widget.setStyle("Enter Style Here");
+    widget.setValue("Initial Value");
     widgets.add(widget);
     return widget;
   }
