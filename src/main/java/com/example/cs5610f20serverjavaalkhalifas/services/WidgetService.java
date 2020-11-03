@@ -14,10 +14,10 @@ public class WidgetService {
 
     widgets.add(new Widget("345", "Widget Name 3",
             "PARAGRAPH", 3, "Machine learning (ML) is the study of computer algorithms that improve automatically through experience. It is seen as a subset of artificial intelligence. Machine learning algorithms build a model based on sample data, known as training data, in order to make predictions or decisions without being explicitly programmed to do so.",
-            "Heading 5", 650, 200, "CSS Style Here","style.css", "Some Value", "5f9b36761a4d420017a4384a"));
+            "Heading 5", 650, 200, "CSS Style Here","style.css", "Some Value", "5fa1c27d0df073001729c69a"));
     widgets.add(new Widget("123", "Widget Name 1",
             "HEADING", 1, "What is Machine Learning?",
-            "Heading 3", 650, 200, "CSS Style Here","style.css", "Some Value", "5f9b36761a4d420017a4384a"));
+            "Heading 3", 650, 200, "CSS Style Here","style.css", "Some Value", "5fa1c27d0df073001729c69a"));
 
   }
 
