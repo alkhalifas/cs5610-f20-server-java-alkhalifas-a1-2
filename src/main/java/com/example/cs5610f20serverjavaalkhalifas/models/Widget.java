@@ -1,8 +1,19 @@
 package com.example.cs5610f20serverjavaalkhalifas.models;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.*;
+
+@Entity
+@Table(name="widgets")
 public class Widget implements Comparable<Widget>{
 
-  private String id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Integer id;
   private String name;
   private String type;
   private Integer widgetOrder;
@@ -19,7 +30,7 @@ public class Widget implements Comparable<Widget>{
   // Overloaded constructor
 
 
-  public Widget(String id, String name, String type, Integer widgetOrder, String text, String size, Integer width, Integer height, String cssClass, String style, String value, String topicId) {
+  public Widget(Integer id, String name, String type, Integer widgetOrder, String text, String size, Integer width, Integer height, String cssClass, String style, String value, String topicId) {
     this.id = id;
     this.name = name;
     this.type = type;
@@ -48,11 +59,12 @@ public class Widget implements Comparable<Widget>{
   }
 
 
-  public String getId() {
+  @Id
+  public Integer getId() {
     return id;
   }
 
-  public void setId(String id) {
+  public void setId(Integer id) {
     this.id = id;
   }
 

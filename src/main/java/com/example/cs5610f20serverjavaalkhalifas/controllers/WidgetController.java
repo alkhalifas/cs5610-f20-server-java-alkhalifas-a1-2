@@ -2,6 +2,8 @@ package com.example.cs5610f20serverjavaalkhalifas.controllers;
 
 import com.example.cs5610f20serverjavaalkhalifas.models.Widget;
 import com.example.cs5610f20serverjavaalkhalifas.services.WidgetService;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -21,7 +23,10 @@ import java.util.List;
 @RestController
 @CrossOrigin(origins = "*")
 public class WidgetController {
-  WidgetService service = new WidgetService();
+
+    @Autowired
+    WidgetService service;
+//  WidgetService service = new WidgetService();
 
   @GetMapping("/hello")
   public String sayHello() {
@@ -41,7 +46,7 @@ public class WidgetController {
 
   @GetMapping("/api/widgets/{wid}")
   public Widget findWidgetById(
-          @PathVariable("wid") String widgetId) {
+          @PathVariable("wid") Integer widgetId) {
     return service.findWidgetById(widgetId);
   }
 
@@ -52,9 +57,9 @@ public class WidgetController {
   }
 
   @DeleteMapping("api/widgets/{widgetId}")
-  public int deleteWidget(
-          @PathVariable("widgetId") String wid) {
-    return service.deleteWidget(wid);
+  public void deleteWidget(
+          @PathVariable("widgetId") Integer wid) {
+    service.deleteWidget(wid);
   }
 
   @PostMapping("/api/topics/{topicId}/widgets")
@@ -67,8 +72,8 @@ public class WidgetController {
   }
 
   @PutMapping("/api/widgets/{wid}")
-  public Integer updateWidget(
-          @PathVariable("wid") String wid,
+  public Widget updateWidget(
+          @PathVariable("wid") Integer wid,
           @RequestBody Widget newWidget) {
     return service.updateWidget(wid, newWidget);
   }
