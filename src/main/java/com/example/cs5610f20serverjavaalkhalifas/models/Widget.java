@@ -13,6 +13,7 @@ public class Widget implements Comparable<Widget>{
   private Integer widgetOrder;
   private String text;
   private String size;
+  private String url;
   private Integer width;
   private Integer height;
   private String cssClass;
@@ -21,13 +22,14 @@ public class Widget implements Comparable<Widget>{
   private String topicId;
 
 
-  public Widget(Integer id, String name, String type, Integer widgetOrder, String text, String size, Integer width, Integer height, String cssClass, String style, String value, String topicId) {
+  public Widget(Integer id, String name, String type, Integer widgetOrder, String text, String size, String url, Integer width, Integer height, String cssClass, String style, String value, String topicId) {
     this.id = id;
     this.name = name;
     this.type = type;
     this.widgetOrder = widgetOrder;
     this.text = text;
     this.size = size;
+    this.url = url;
     this.width = width;
     this.height = height;
     this.cssClass = cssClass;
@@ -133,6 +135,14 @@ public class Widget implements Comparable<Widget>{
 
   public void setTopicId(String topicId) {
     this.topicId = topicId;
+  }
+
+  public String getUrl() {
+    return url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
   }
 
   @Override
