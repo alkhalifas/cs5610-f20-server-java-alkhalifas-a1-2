@@ -24,8 +24,8 @@ import java.util.List;
 @CrossOrigin(origins = "*")
 public class WidgetController {
 
-    @Autowired
-    WidgetService service;
+  @Autowired
+  WidgetService service;
 //  WidgetService service = new WidgetService();
 
   @GetMapping("/hello")

@@ -55,7 +55,7 @@ public class WidgetService {
 
   //When creating a new widget, be sure to change these:
   public Widget createWidget(Widget widget) {
-      return widgetRepository.save(widget);
+    return widgetRepository.save(widget);
 
 //    widget.setId((new Date()).toString());
 //    widget.setId(123);
