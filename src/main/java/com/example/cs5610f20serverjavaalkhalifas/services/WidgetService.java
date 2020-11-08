@@ -97,30 +97,24 @@ public class WidgetService {
     Optional oldWidgetO = widgetRepository.findById(wid);
     if (oldWidgetO.isPresent()) {
       Widget oldWidget = (Widget) oldWidgetO.get();
-
       oldWidget.setName(newWidget.getName());
       oldWidget.setType(newWidget.getType());
       oldWidget.setWidgetOrder(newWidget.getWidgetOrder());
-      oldWidget.setSize(newWidget.getSize());
       oldWidget.setText(newWidget.getText());
+      oldWidget.setSize(newWidget.getSize());
+      oldWidget.setWidth(newWidget.getWidth());
+      oldWidget.setHeight(newWidget.getHeight());
+      oldWidget.setCssClass(newWidget.getCssClass());
+      oldWidget.setStyle(newWidget.getStyle());
+      oldWidget.setValue(newWidget.getValue());
+      oldWidget.setTopicId(newWidget.getTopicId());
+
+
       return widgetRepository.save(oldWidget);
     } else {
       return null;
     }
   }
-
-//    for(Widget w: widgets) {
-//      if(w.getId().equals(wid)) {
-//        w.setName(newWidget.getName());
-//        w.setType(newWidget.getType());
-//        w.setWidgetOrder(newWidget.getWidgetOrder());
-//        w.setSize(newWidget.getSize());
-//        w.setText(newWidget.getText());
-//        return 1;
-//      }
-//    }
-//    return 0;
-//  }
 
 
 }
