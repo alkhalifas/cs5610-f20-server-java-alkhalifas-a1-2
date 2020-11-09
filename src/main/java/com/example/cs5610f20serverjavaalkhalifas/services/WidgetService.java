@@ -36,7 +36,6 @@ public class WidgetService {
     widgetRepository.deleteById(wid);
   }
 
-
   public Widget updateWidget(
           Integer wid,
           Widget newWidget) {
@@ -55,7 +54,6 @@ public class WidgetService {
       oldWidget.setStyle(newWidget.getStyle());
       oldWidget.setValue(newWidget.getValue());
       oldWidget.setTopicId(newWidget.getTopicId());
-
 
       return widgetRepository.save(oldWidget);
     } else {
