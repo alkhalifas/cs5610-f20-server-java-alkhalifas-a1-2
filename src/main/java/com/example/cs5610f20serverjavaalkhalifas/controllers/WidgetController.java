@@ -69,6 +69,7 @@ public class WidgetController {
     widget.setTopicId(topicId);
     widget.setName("New Heading Widget");
     widget.setType("HEADING");
+    widget.setText("Widget text here");
     widget.setValue("ORDERED");
     widget.setSize("Heading 1");
     widget.setHeight(250);
