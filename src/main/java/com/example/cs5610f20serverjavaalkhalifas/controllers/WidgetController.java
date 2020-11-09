@@ -67,6 +67,11 @@ public class WidgetController {
           @PathVariable("topicId") String topicId,
           @RequestBody Widget widget) {
     widget.setTopicId(topicId);
+    widget.setName("New Widget");
+    widget.setType("HEADING");
+    widget.setValue("ORDERED");
+    widget.setSize("Heading 1");
+
     //widget.setType("HEADING"); // Did not make difference
     return service.createWidget(widget);
   }
